@@ -75,6 +75,18 @@ public abstract class Unit {
 
     public abstract void calcArmour();
 
+    public void attack(Unit other) {
+
+        other.setCurrentHp(other.getCurrentHp() - this.getDamage());
+
+        System.out.println(String.format("%s [%d/%d] attacked %s with %d damage", this.name, this.currentHp, this.hp,
+                other.getName(), this.damage));
+    }
+
+    public boolean isDead() {
+        return this.currentHp <= 0;
+    }
+
     public String getName() {
 
         return name;
@@ -228,7 +240,8 @@ public abstract class Unit {
     @Override
     public String toString() {
 
-        return String.format("Unit [name=%s, currentHp=%s/%s]", name, currentHp, hp);
+        return String.format("%s [hp=%d/%d, damage=%d, attackSpeed=%.2f, armour=%d]", name, currentHp, hp, damage,
+                attackSpeed, armour);
     }
 
 }

@@ -4,7 +4,7 @@ public class Warrior extends Unit {
 
     private double VIT_HP_MULTIPLIER = 5;
 
-    private double VIT_ARMOUR_MULTIPLIER;
+    private double VIT_ARMOUR_MULTIPLIER = 1;
 
     private double STR_DMG_MULTIPLIER = 1.5;
 
@@ -33,7 +33,7 @@ public class Warrior extends Unit {
     @Override
     public void calcAttackSpeed() {
 
-        this.attackSpeed = baseAttackSpeed + (int) (Math.floor(agility * AGI_AS_MULTIPLIER));
+        this.attackSpeed = baseAttackSpeed - agility * AGI_AS_MULTIPLIER;
     }
 
     @Override
